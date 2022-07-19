@@ -50,7 +50,7 @@ public class FindMaximum<T extends Comparable<T>> {
 		FindMaximum.testMaximum(a1Str, a2Str, a3Str);
 		new FindMaximum(a1Int, a2Int, a3Int).maximum();
 		new FindMaximum(a1F, a2F, a3F).maximum();
-		new FindMaximum(a1Int, a2Int, a3Int).maximum();	
+		new FindMaximum(a1Str, a2Str, a3Str).maximum();	
 	}
 }
 
