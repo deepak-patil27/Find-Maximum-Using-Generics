@@ -1,26 +1,56 @@
 package com.bridgelab;
 
-public class FindMaximum {
-	public static <T extends Comparable<T>> T maxOfValues(T a1, T a2, T a3, T a4, T a5, T a6) {
-		T max = a1;
-		if (a2.compareTo(max) > 0)
+public class FindMaximum<T extends Comparable<T>> {
+	
+	T a1, a2, a3;
+
+	public FindMaximum(T a1, T a2, T a3) {
+	this.a1 = a1;
+	this.a2 = a2;
+	this.a3 = a3;
+	}
+	
+	public T maximum() {
+		return FindMaximum.maximum(a1, a2, a3);
+	}
+	
+	public static <T extends Comparable<T>> T maximum(T a1, T a2, T a3) {
+	T max = a1;
+	if (a2.compareTo(max) > 0) {
+		max = a2;;
+	}
+	if (a3.compareTo(max) > 0) {
+		max = a3;
+	}
+	printMax(a1, a2, a3, max);
+	return max;
+	}
+	
+	public static String testMaximum(String a1, String a2, String a3) {
+		String max = a1;
+		if(a2.compareTo(max) > 0) {
 			max = a2;
-		if (a3.compareTo(max) > 0)
+		}
+		if(a3.compareTo(max) > 0) {
 			max = a3;
-		if (a4.compareTo(max) > 0)
-			max = a4;
-		if (a5.compareTo(max) > 0)
-			max = a5;
-		if (a6.compareTo(max) > 0)
-			max = a6;
+		}
+		printMax(a1, a2, a3, max);
 		return max;
+	}
+	
+	public static <T> void printMax(T a1, T a2, T a3, T max) {
+		System.out.printf("Max of %s, %s and %s is %s\n",a1 , a2, a3, max);
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Welcome To Find Maximun Problem Using Generics \n");
-		System.out.println("The maximum value between the six integer is : " + maxOfValues(15, 87, 68, 78, 97, 45)+ "\n");
-		System.out.println("The maximum value between the six float is : " + maxOfValues(1.5f, 8.7f, 6.8f, 9.4f, 7.2f, 11.25f) + "\n");
-		System.out.println("The maximum value between the six string is : " + maxOfValues("Apple", "Banana", "Peach","Orange","Grapes","Strawberry"));
+		Integer a1Int = 9, a2Int = 14, a3Int = 69;
+		Float a1F = 2.1f, a2F = 8.2f, a3F = 6.9f;
+		String a1Str = "Apple", a2Str = "Banana", a3Str = "Peach";
+		
+		FindMaximum.testMaximum(a1Str, a2Str, a3Str);
+		new FindMaximum(a1Int, a2Int, a3Int).maximum();
+		new FindMaximum(a1F, a2F, a3F).maximum();
+		new FindMaximum(a1Int, a2Int, a3Int).maximum();	
 	}
 }
 
